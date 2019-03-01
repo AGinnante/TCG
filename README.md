@@ -1,4 +1,4 @@
-#TCG
+# TCG
 
 This project allows to read the orientation of the right arm estimated by three different sensors, a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to meve it. 
 
