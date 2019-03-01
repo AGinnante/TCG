@@ -1,6 +1,6 @@
-# Alby is the boss
+# Mobile Robot Teleoperation
 
-This project allows to read the orientation of the right arm estimated by three different sensors, a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to meve it. 
+This project allows to read the orientation of the right arm estimated by three different sensors, a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
 ## The System’s Architecture
 
@@ -8,7 +8,7 @@ The hardware is composed by a smartwatch, a kinect, a leap motion and the robot 
 
 ### Description of the Modules
 
-The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. Since the controller receives RPY angles that are easier to interpret than quaternions. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller converts RPY data into linear and angular velocities, makes the average and sends the actual velocities to the robot.  
+The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller receives RPY angles which are easier to interpret than quaternions and converts them into linear and angular velocities, makes the average and sends the actual velocities to the robot.  
 
 ### Smartwatch Module 
 
@@ -57,6 +57,10 @@ Software prerequisites:
 	sudo apt-get install ros-kinetic-hector-gazebo
 	sudo apt-get install python-pygame
 	```
+1. Install the timed roslaunch package through the command
+	```bash
+	sudo apt install ros-kinetic-timed-roslaunch
+	```
 1. Compile your workspace
 	```bash
 	catkin_make
@@ -65,7 +69,7 @@ Software prerequisites:
 	```bash
 	export GAZEBO_MODEL_PATH=[your path]/src/haro/am_gazebo/models:$GAZEBO_MODEL_PATH
 	```
-1. Check the Mosquitto broker status, if the broker is already active skip step 3.
+1. Check the Mosquitto broker status, if the broker is already active skip step 6.
     ```bash
     sudo service mosquitto status
     ```
@@ -91,4 +95,3 @@ During the test phase some issues raised, one of them is the fact that the conne
 * Noel Alejandro Avila Campos: nono.nonex@gmail.com
 * Nicola De Carli: s4198668@studenti.unige.it
 * Angelica Ginnante: angelica.ginnante@gmail.com
-
